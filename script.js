@@ -26,28 +26,36 @@ for (let property1 in imgImport) {
   imgArr.push(imgImport[property1]);
 }
 
-let i = 0 ;
+//code to randomize an array
+let randomize = (arr) => {
+    for (let i = arr.length - 1; i > 0; i--) { //regressive loop
+        const j = Math.floor(Math.random() * ( i + 1)); //magic ?
+        [arr[i], arr[j]]=[arr[j], arr[i]]; //swap srouce index with a new random one
+    }
+}
+
+
 //code to cycle through the resized images
-let imgCycler = (input) => {
-  console.log("Jamal le glorieux");
-  //for(let i = 0 ; i < imgArr.length ; i++){
+let randomizeCycler = (input) => {
+  randomize(imgArr);
+  for(let i = 0 ; i < imgArr.length ; i++){
     // code to send an image in the index.html
-    let imgBox = document.getElementById('squareBox');
-    imgBox.innerHTML = ""; //sert à effacer l'image pour la remplacer par la nouvelle
+    let imgContent = document.getElementById('content');
+    let imgBox = document.createElement('div')
+    imgBox.setAttribute("classname", "squareBox")
     let imgItem = document.createElement('img')
     imgItem.setAttribute("alt", "img not found");
     imgItem.setAttribute("id", "squareImg");
     imgItem.setAttribute("src", imgArr[input]);
+    imgContent.appendChild(imgBox)
     imgBox.appendChild(imgItem);
-    //nasty solution courtesy of Thibaut & Romain
-    i++
-    i%=imgArr.length;
-//  }
+  }
 }
 
 //code to call the imgCycler fct on repeated intervals
-window.setInterval( () => {imgCycler(i)}, 1000);
+//window.setInterval( () => {imgCycler(i)}, 1000);
 
+document.getElementById("randomizeButton").addEventListener('click', () => {randomizeCycler});
 console.log("Hey look in your browser console. It works!");
 /*Enoncé:
 
