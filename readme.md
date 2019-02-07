@@ -1,11 +1,9 @@
 # Becode js-web-1.5
-Use your Google Images skills to collect a dozen of cat images.
+Re-use the collection of cat images you made for the last exercise but this time display all of them at the same time in 100x100 pixel squares. When you click on a button randomize the order of the cats.
 
-Display these cat images in your app one by one by cycling automatically every second. These images must be displayed in a 500x500 pixel square and should be resized and cropped automatically to fit in this space regardless of their original resolution or aspect-ratio. (Purposedly choosing images that all have the same resolution or aspect-ratio is considered cheating.)
+This screen should be fully responsive and display nicely even on phones. (Use your browser's device emulation mode to test.)
 
-If you ever alter the aspect-ratio of an image to make it deformed we swear we will do this your car. (Or your bike if you don't have a car.)
-
-Lien vers la [github page](https://matthieujasselette.github.io/js-web-1.5/)
+Lien vers la [github page](https://matthieujasselette.github.io/js-web-1.6/)
 
 # Becode Template for JavaScript Exercises
 
