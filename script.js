@@ -25,27 +25,22 @@ let imgArr = [];
 for (let property1 in imgImport) {
   imgArr.push(imgImport[property1]);
 }
-console.log(imgArr); //control
 
 //code to randomize an array ; used in randomizeCycler
 let randomize = (arr) => {
-    for (let i = arr.length - 1; i > 0; i--) { //regressive loop
-        const j = Math.floor(Math.random() * ( i + 1)); //magic ?
-        [arr[i], arr[j]]=[arr[j], arr[i]]; //swap source index with a new random one
-    }
+  for (let i = arr.length - 1; i > 0; i--) { //regressive loop
+    const j = Math.floor(Math.random() * ( i + 1)); //magic ?
+    [arr[i], arr[j]]=[arr[j], arr[i]]; //swap source index with a new random one
+  }
 }
-
 
 //code to cycle through the resized images
 let randomizeCycler = () => {
   randomize(imgArr);
-  console.log(imgArr); //control
   let imgContent = document.getElementById('contentBox');
   imgContent.innerHTML = "";
   for(let i = 0 ; i < imgArr.length ; i++){
     // code to send an image in the index.html
-   // let imgContent = document.getElementById('contentBox');
-   // imgContent.innerHTML = '<button type="button" id="randomizeButton">Click me</button>' ;
    let imgBox = document.createElement('div')
     imgBox.setAttribute("class", "squareBox")
    let imgItem = document.createElement('img')
@@ -54,12 +49,8 @@ let randomizeCycler = () => {
      imgItem.setAttribute("src", imgArr[i]);
    imgContent.appendChild(imgBox)
    imgBox.appendChild(imgItem);
-  //imgContent.appendChild(imgItem);
   }
 }
-
-//code to call the imgCycler fct on repeated intervals
-//window.setInterval( () => {imgCycler(i)}, 1000);
 
 document.getElementById("randomizeButton").addEventListener('click', () => {randomizeCycler()});
 console.log("Hey look in your browser console. It works!");
